@@ -42,7 +42,7 @@ if (preg_match($blacklist, $_FILES['file']['name']))
  
 $upload_dir = '/uploads/'; // папка
 $upload_path = dirname (__FILE__).$upload_dir; //путь
-/*$upload_filename = basename($_FILES['file']['tmp_name']);*/ // имя файла не изменное
+/*$upload_filename = basename($_FILES['file']['tmp_name']);*/ 
 $upload_filename = basename($_FILES["file"]["name"]);
 $upload_link = "http://".$_SERVER ["HTTP_HOST"].dirname ($_SERVER ["PHP_SELF"]).$upload_dir.$upload_filename; // образовывает ссылку на скачивание
 
