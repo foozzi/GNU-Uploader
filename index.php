@@ -11,8 +11,10 @@
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
- * V.0.2 beta
+ * V.0.2.1 beta
 */
+include_once('file_list.php');
+
 ini_set('display_errors',1); 
 error_reporting(E_ALL);
 
@@ -34,10 +36,11 @@ if($_FILES["file"]["size"] > 1024*2000*1024)
 exit ("Файл слишком большой для загрузки");
 }
 
-if (preg_match($blacklist, $_FILES['file']['name'])) 
+
+/*if (preg_match($blacklist, $_FILES['file']['name'])) 
 {
    exit ("Файл с данным расширением запрещен к загрузке");
-}
+}*/
 
  
 $upload_dir = '/uploads/'; // папка
@@ -45,6 +48,12 @@ $upload_path = dirname (__FILE__).$upload_dir; //путь
 /*$upload_filename = basename($_FILES['file']['tmp_name']);*/ 
 $upload_filename = basename($_FILES["file"]["name"]);
 $upload_link = "http://".$_SERVER ["HTTP_HOST"].dirname ($_SERVER ["PHP_SELF"]).$upload_dir.$upload_filename; // образовывает ссылку на скачивание
+
+
+if(!$upload_filename->check_mime_type()) 
+{
+   exit ("Файл с данным расширением запрещен к загрузке");
+}
 
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $upload_path.$upload_filename))  
