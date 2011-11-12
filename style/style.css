@@ -1,0 +1,20 @@
+/* 
+ * foozzi 2011 copyleft
+ * License: GNU/GPL
+ * V.0.4.0 beta
+*/
+
+* {
+	font-size: 13px;
+	font-family: Arial;
+}
+#upload {
+	width: 700px;
+	padding: 20px;
+	color: #333333;
+	text-align: center;
+	background-color: #efefef;
+} 
+#copyleft {
+	text-align: center;
+}
