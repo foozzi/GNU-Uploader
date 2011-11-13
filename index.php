@@ -1,10 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
-<?php define('GNUU_INC',dirname(__FILE__).'/'); ?> <!--Определение пути на сервере-->
+<?php define('GNUU_INC',dirname(__FILE__).'/'); ?>
 <!--
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
- * V.0.4.0 beta
+ * V.0.5 beta
 */
 -->
 <html>
@@ -30,9 +30,9 @@
 <td>
 <ol>
 <table width="100%" height="100%"><tr valign="center"><td align="center" nowrap><div id="upload">
-	
-<?php require_once(GNUU_INC.'gnuu.php'); ?>
-		
+	<?php
+		require_once(GNUU_INC.'gnuu.php');
+		?>
 </ol>
 </td>
 </tr>
