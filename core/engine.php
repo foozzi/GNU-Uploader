@@ -2,7 +2,7 @@
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
- * V.0.6.1 beta
+ * V.0.6.1
 */
 error_reporting(E_ALL | E_STRICT); 
 ini_set("display_errors", True);
@@ -29,14 +29,16 @@ if(isset($allowedtypes))
 		}
 		if($allowed == 0) 
 		{
-			echo "Не разрешенный тип файла.";
+			echo "Не разрешенный тип файла.</br>";
+			echo "<a href='?".md5(microtime())."'>Попробовать еще</a>";
 			die();
 			}
 }
 
 if($file_size > $max_size) 
 {
-	echo "Файл слишком большой";
+	echo "Файл слишком большой.</br>";
+	echo "<a href='?".md5(microtime())."'>Попробовать еще</a>";
 	}
 			
 $d=opendir($upload_dir);
@@ -52,16 +54,22 @@ $upload_filename = $s."-".$file_name;/*.preg_replace('/^.*\.(.*)$/U', '$1', $fil
 fwrite($filelist, $s ."|". basename($_FILES['filename']['name']) ."|". $userip ."|". $date."|". $upload_filename . "|\n");			
 
 $upload_link = "http://".$_SERVER["HTTP_HOST"].dirname ($_SERVER["PHP_SELF"]).'/'.$upload_dir.'/'.$upload_filename;
-move_uploaded_file($_FILES['filename']['tmp_name'], $upload_dir."/".$upload_filename);
-
-	  echo "Файл загружен.<br>"; 
-	  echo "Линки:<br>";
-     echo "<input type='text' size=80 onclick='this.select()' value='".$upload_link."'><br><br>"; // Обычная ссылка
-     echo "HTML Линк:<br>";
-     echo "<input type='text' size=80 onclick='this.select()' value=\"<a href='".$upload_link."'>".$upload_link."</a>\"><br><br>"; // HTML Ссылка
-     echo "BB-Code Линк:<br>";
-     echo "<input type='text' size=80 onclick='this.select()' value='[url]".$upload_link."[/url]'><br><br>"; // BB-Code Ссылка
-     echo "<a href='?".md5(microtime())."'>Загрузить другой файл</a>";
-	
+if (move_uploaded_file($_FILES['filename']['tmp_name'], $upload_dir."/".$upload_filename))
+{
+	echo "Файл загружен.<br>"; 
+	echo "Линки:<br>";
+   echo "<input type='text' size=80 onclick='this.select()' value='".$upload_link."'><br><br>"; // Обычная ссылка
+   echo "HTML Линк:<br>";
+   echo "<input type='text' size=80 onclick='this.select()' value=\"<a href='".$upload_link."'>".$upload_link."</a>\"><br><br>"; // HTML Ссылка
+   echo "BB-Code Линк:<br>";
+   echo "<input type='text' size=80 onclick='this.select()' value='[url]".$upload_link."[/url]'><br><br>"; // BB-Code Ссылка
+   echo "<a href='?".md5(microtime())."'>Загрузить другой файл</a>";
+}
+else 
+{
+	echo "Произошла неизвестная ошибка, файл не был загружен</br>";
+	echo "<a href='?".md5(microtime())."'>Попробовать еще</a>";
+}	
+		
   
 ?>

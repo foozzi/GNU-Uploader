@@ -2,7 +2,7 @@
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
- * V.0.5 beta
+ * V.0.6.1
 */
 //Каталог, относительно скрипта
 $path = 'uploads';

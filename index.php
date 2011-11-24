@@ -4,7 +4,7 @@
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
- * V.0.6.1 beta
+ * V.0.6.1 
 */
 -->
 <html>
