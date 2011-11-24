@@ -4,11 +4,7 @@
 /* 
  * foozzi 2011 copyleft
  * License: GNU/GPL
-<<<<<<< HEAD
  * V.0.6.1 beta
-=======
- * V.0.5 beta
->>>>>>> a8279673e5cf211ba1cf154a2fd2056b31432ec6
 */
 -->
 <html>
