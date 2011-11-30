@@ -50,7 +50,7 @@ while($e=readdir($d))
   }			
 
 $filelist = fopen("./data/data_files.txt","a+");
-$upload_filename = $s."-".$file_name;/*.preg_replace('/^.*\.(.*)$/U', '$1', $file_name);*/
+$upload_filename = $s."-".$file_name;
 fwrite($filelist, $s ."|". basename($_FILES['filename']['name']) ."|". $userip ."|". $date."|". $upload_filename . "|\n");			
 
 $upload_link = "http://".$_SERVER["HTTP_HOST"].dirname ($_SERVER["PHP_SELF"]).'/'.$upload_dir.'/'.$upload_filename;
