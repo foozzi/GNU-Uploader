@@ -8,7 +8,7 @@ error_reporting(E_ALL | E_STRICT);
 ini_set("display_errors", True);
 
 include_once ("./inc/inc.config.php");
-$date = date("d = F = Y ");
+$date = date('l jS \of F Y h:i:s A');
 $userip = $_SERVER['REMOTE_ADDR'];
 $file_name = $_FILES['filename']['name'];
 $file_size = $_FILES['filename']['size'];
