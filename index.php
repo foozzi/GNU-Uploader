@@ -49,10 +49,4 @@
 </table>
 </font>
 </body>
-<html>
-
-</body>
-
-
-
 </html>
